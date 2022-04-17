@@ -47,18 +47,19 @@ const Post = new mongoose.Schema({
         trim: true
     },
     add_time: {
-        type: String,
+        type: Date,
         minlength: 2,
         maxlength: 255,
         trim: true,
-        required: true
+        required: true,
+        default: (new Date()).toLocaleDateString()
     },
     picture: {
         type: String,
         minlength: 2,
         maxlength: 255,
         trim: true,
-        required: true
+        
     },
 })
 

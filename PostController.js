@@ -1,5 +1,6 @@
 import PostService from "./PostService.js"
 
+
 class PostController {
     async create(req, res) {
         try {
@@ -29,6 +30,7 @@ class PostController {
     }
 
     async update(req, res) {
+        
         try {
             const updatedPost = await PostService.update(req.body)
             res.json(updatedPost)
