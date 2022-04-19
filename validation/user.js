@@ -28,10 +28,7 @@ export const userValidation = (data) => {
 		description: Joi.string()
 			.min(2)
 			.max(255),
-		add_time: Joi.string()
-			.min(2)
-			.max(255)
-			.required(),
+		time: Joi.string(),
 		picture: Joi.string()
 			.min(2)
 			.max(255)

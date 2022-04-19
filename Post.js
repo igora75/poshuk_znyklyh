@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { CURRENT_DATE } from "./constants/constants.js";
 
 const Post = new mongoose.Schema({
     name: {
@@ -46,13 +47,9 @@ const Post = new mongoose.Schema({
         maxlength: 255,
         trim: true
     },
-    add_time: {
-        type: Date,
-        minlength: 2,
-        maxlength: 255,
-        trim: true,
-        required: true,
-        default: (new Date()).toLocaleDateString()
+    date: {
+        type: String,
+        default: CURRENT_DATE
     },
     picture: {
         type: String,
