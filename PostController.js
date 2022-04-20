@@ -3,6 +3,11 @@ import { userValidation } from "./validation/user.js"
 
 class PostController {
     async create(req, res) {
+        const { error } = userValidation(req.body)
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message })
+        }
+
         try {
             const post = await PostService.create(req.body, req.files.picture)
             res.json(post)
@@ -30,15 +35,13 @@ class PostController {
     }
 
     async update(req, res) {
-        
-        
-        try {
-            const { error } = userValidation(req.body)
+        const { error } = userValidation(req.body)
         if (error) {
             console.log(error);
-            res.status(400).json({ message: 'error' })
+            return res.status(400).json({ message: error.details[0].message })
         }
 
+        try {
             const updatedPost = await PostService.update(req.body)
             res.json(updatedPost)
         } catch (e) {
