@@ -1,11 +1,11 @@
 import Post from "./Post.js"
 import fileService from "./fileService.js"
-import {userValidation} from "./validation/user.js"
+import { userValidation } from "./validation/user.js"
 
 class PostService {
     async create(post, picture) {
-        const fileName= fileService.saveFile(picture)
-        const createdPost = await Post.create({...post, picture: fileName})
+        const fileName = fileService.saveFile(picture)
+        const createdPost = await Post.create({ ...post, picture: fileName })
         return createdPost
     }
 
@@ -23,11 +23,7 @@ class PostService {
     }
 
     async update(post) {
-        const { error } = userValidation(req.body)
-        if (error) {
-            console.log(error);
-            res.status(400).json({ message: 'error' })
-        }
+        
 
 
         if (!post._id) {

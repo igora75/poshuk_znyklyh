@@ -1,5 +1,5 @@
 import PostService from "./PostService.js"
-
+import { userValidation } from "./validation/user.js"
 
 class PostController {
     async create(req, res) {
@@ -31,7 +31,14 @@ class PostController {
 
     async update(req, res) {
         
+        
         try {
+            const { error } = userValidation(req.body)
+        if (error) {
+            console.log(error);
+            res.status(400).json({ message: 'error' })
+        }
+
             const updatedPost = await PostService.update(req.body)
             res.json(updatedPost)
         } catch (e) {
