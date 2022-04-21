@@ -21,7 +21,7 @@ export const userValidation = (data) => {
 		region: Joi.string()
 			.min(2)
 			.max(255),
-		birth_year: Joi.number()
+		birth_year: Joi.string()
 			.integer()
 			.min(CURRENT_YEAR - 100)
 			.max(CURRENT_YEAR),

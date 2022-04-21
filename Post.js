@@ -26,7 +26,7 @@ const Post = new mongoose.Schema({
         trim: true
     },
     birth_year: {
-        type: Number,
+        type: String,
         trim: true
     },
     description: {
