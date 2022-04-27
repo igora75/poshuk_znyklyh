@@ -3,6 +3,7 @@ import { CURRENT_YEAR } from "../constants/constants.js";
 
 export const userValidation = (data) => {
 	const schema = Joi.object({
+		_id: Joi.string(),
 		name: Joi.string()
 			.min(2)
 			.max(255)
@@ -21,16 +22,20 @@ export const userValidation = (data) => {
 		region: Joi.string()
 			.min(2)
 			.max(255),
-		birth_year: Joi.string(),
-			
+		birth_year: Joi.number()
+			.min(CURRENT_YEAR - 100)
+			.max(CURRENT_YEAR),
+
 		description: Joi.string()
 			.min(2)
 			.max(255),
-		time: Joi.string(),
+		date: Joi.string()
+			.min(2)
+			.max(255),
 		picture: Joi.string()
 			.min(2)
 			.max(255)
-			
+
 	})
 	return schema.validate(data)
 }

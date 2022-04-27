@@ -22,6 +22,9 @@ class PostService {
     }
 
     async update(post) {
+        if (!post._id) {
+            throw new Error('id not specified')
+        }
         const updatedPost = await Post.findByIdAndUpdate(post._id, post, { new: true })
         return updatedPost
     }

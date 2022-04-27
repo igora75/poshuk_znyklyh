@@ -40,8 +40,8 @@ const Post = new mongoose.Schema({
     picture: {
         type: String,
         trim: true,
-        
+
     },
-})
+}, { versionKey: false })
 
 export default mongoose.model('Post', Post)
