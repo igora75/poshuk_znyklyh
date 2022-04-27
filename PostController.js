@@ -3,8 +3,6 @@ import { userValidation } from "./validation/user.js"
 
 class PostController {
     async create(req, res) {
-
-
         try {
             const { error } = userValidation(req.body)
             if (error) {
@@ -37,9 +35,6 @@ class PostController {
     }
 
     async update(req, res) {
-
-        
-
         try {
             const { error } = userValidation(req.body)
             if (error) {
