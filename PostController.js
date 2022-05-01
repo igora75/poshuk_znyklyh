@@ -25,6 +25,16 @@ class PostController {
         }
     }
 
+    async getSearch(req, res) {
+        try {
+            console.log(req.body);
+            const posts = await PostService.getSearch(req.body)
+            res.json(posts)
+        } catch (e) {
+            res.status(500).json(e)
+        }
+    }
+
     async getOne(req, res) {
         try {
             const post = await PostService.getOne(req.params.id)

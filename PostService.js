@@ -9,7 +9,12 @@ class PostService {
     }
 
     async getAll() {
-        const posts = await Post.find()
+        const posts = await Post.find().sort({ _id: -1 }).limit(16).lean()
+        return posts
+    }
+
+    async getSearch(post) {
+        const posts = await Post.find({ ...post })
         return posts
     }
 

@@ -5,12 +5,12 @@ const Post = new mongoose.Schema({
     name: {
         type: String,
         trim: true,
-        required: true
+
     },
     surname: {
         type: String,
         trim: true,
-        required: true
+
     },
     midname: {
         type: String,
@@ -19,7 +19,7 @@ const Post = new mongoose.Schema({
     city: {
         type: String,
         trim: true,
-        required: true
+
     },
     region: {
         type: String,
