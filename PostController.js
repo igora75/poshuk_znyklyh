@@ -27,11 +27,6 @@ class PostController {
 
     async getSearch(req, res) {
         try {
-            const { error } = userValidation(req.body)
-            if (error) {
-                return res.status(400).json({ message: error.details[0].message })
-            }
-
             const posts = await PostService.getSearch(req.body)
             res.json(posts)
         } catch (e) {
