@@ -14,7 +14,7 @@ class PostService {
     }
 
     async getSearch(post) {
-        const posts = await Post.find({ ...post })
+        const posts = await Post.find(post)
         return posts
     }
 
